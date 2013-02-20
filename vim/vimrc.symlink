@@ -1,5 +1,7 @@
 """""" General vim config
+
 set nocompatible
+colorscheme wombat
 
 
 """""" Set up vundle
@@ -10,3 +12,7 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 Bundle 'gmarik/vundle' 
 
+
+"""""" Bundles
+
+Bundle 'flazz/vim-colorschemes'
