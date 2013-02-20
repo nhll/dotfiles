@@ -18,5 +18,15 @@ fi
 autoload -U compinit
 compinit
 
+# Enable vi-mode
+bindkey -v
+
 # load every completion after autocomplete loads
 for config_file ($ZSH/**/completion.zsh) source $config_file
+
+vi-append-x-selection () { RBUFFER=$(xsel -o -p </dev/null)$RBUFFER; }
+zle -N vi-append-x-selection
+bindkey -a '^V' vi-append-x-selection
+vi-yank-x-selection () { print -rn -- $CUTBUFFER | xsel -i -p; }
+zle -N vi-yank-x-selection
+bindkey -a '^C' vi-yank-x-selection
