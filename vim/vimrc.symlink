@@ -1,6 +1,7 @@
 """""" General vim config
 
 set nocompatible
+syntax on
 colorscheme wombat
 
 
@@ -11,8 +12,3 @@ filetype plugin indent on " required by vundle
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 Bundle 'gmarik/vundle' 
-
-
-"""""" Bundles
-
-Bundle 'flazz/vim-colorschemes'
