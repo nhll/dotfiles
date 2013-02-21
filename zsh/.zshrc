@@ -35,5 +35,9 @@ vi-yank-x-selection () { print -rn -- $CUTBUFFER | xsel -i -p; }
 zle -N vi-yank-x-selection
 bindkey -a '^C' vi-yank-x-selection
 
+# allows ctrl-s (etc.) mappings in vim
 alias vim="stty stop '' -ixoff ; vim"
 ttyctl -f
+
+# colorful ls
+alias ls="ls --color"
