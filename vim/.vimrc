@@ -1,14 +1,19 @@
-"""""" General vim config
 
-set nocompatible
+" General config  
+" ----------------------------------------------------------------
 syntax on
 colorscheme wombat
 
+set nocompatible
+set number
+set foldmethod=manual
+" ----------------------------------------------------------------
 
-"""""" Set up vundle
-
-filetype off " required by vundle
-filetype plugin indent on " required by vundle
+" Set up vundle  
+" ----------------------------------------------------------------
+filetype off " required! 
+filetype plugin indent on " required!
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 Bundle 'gmarik/vundle' 
+" ----------------------------------------------------------------
