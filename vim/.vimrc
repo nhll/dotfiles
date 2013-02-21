@@ -22,11 +22,16 @@ set hlsearch " highlighting
 " ----------------------------------------------------------------}}}
 
 " Keybindings / Mappings {{{
-inoremap <c-s> <c-o>:Update<CR><CR>
+" ----------------------------------------------------------------
+" Save files with Ctrl+S no matter in which mode it's pressed
+noremap <silent> <C-S>      :Update<CR>
+vnoremap <silent> <C-S>     <C-C>:Update<CR>
+inoremap <silent> <C-S>     <C-O>:Update<CR>
 " ----------------------------------------------------------------}}}
 
 " Custom commands {{{
 " ----------------------------------------------------------------
+" File saving
 command -nargs=0 -bar Update if &modified
                            \|   if empty(bufname('%'))
                            \|       browse confirm write
