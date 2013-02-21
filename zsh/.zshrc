@@ -16,6 +16,7 @@ ttyctl -f
 alias ls="ls --color"
 
 alias gh="cd $HOME"
+alias rmrf="rm -rfv"
 # }}}
 
 # Stuff from holman's dotfiles {{{
