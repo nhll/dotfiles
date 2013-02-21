@@ -2,6 +2,23 @@
 ## TODO: Clean this up!
 ##
 
+# General config {{{
+# Enable vi-mode
+bindkey -v
+# }}}
+
+# Aliases {{{
+# allows ctrl-s (etc.) mappings in vim
+alias vim="stty stop '' -ixoff ; vim"
+ttyctl -f
+
+# colorful ls
+alias ls="ls --color"
+
+alias gh="cd $HOME"
+# }}}
+
+# Stuff from holman's dotfiles {{{
 # shortcut to this dotfiles path is $ZSH
 export ZSH=$HOME/.dotfiles
 
@@ -22,9 +39,6 @@ fi
 autoload -U compinit
 compinit
 
-# Enable vi-mode
-bindkey -v
-
 # load every completion after autocomplete loads
 for config_file ($ZSH/**/completion.zsh) source $config_file
 
@@ -34,10 +48,4 @@ bindkey -a '^V' vi-append-x-selection
 vi-yank-x-selection () { print -rn -- $CUTBUFFER | xsel -i -p; }
 zle -N vi-yank-x-selection
 bindkey -a '^C' vi-yank-x-selection
-
-# allows ctrl-s (etc.) mappings in vim
-alias vim="stty stop '' -ixoff ; vim"
-ttyctl -f
-
-# colorful ls
-alias ls="ls --color"
+# }}}
