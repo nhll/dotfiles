@@ -1,3 +1,7 @@
+##
+## TODO: Clean this up!
+##
+
 # shortcut to this dotfiles path is $ZSH
 export ZSH=$HOME/.dotfiles
 
@@ -30,3 +34,6 @@ bindkey -a '^V' vi-append-x-selection
 vi-yank-x-selection () { print -rn -- $CUTBUFFER | xsel -i -p; }
 zle -N vi-yank-x-selection
 bindkey -a '^C' vi-yank-x-selection
+
+alias vim="stty stop '' -ixoff ; vim"
+ttyctl -f
