@@ -1,7 +1,3 @@
-##
-## TODO: Clean this up!
-##
-
 # General config {{{
 # Enable vi-mode
 bindkey -v
