@@ -8,7 +8,7 @@ function hc() {
 
 hc emit_hook reload
 
-feh -z --bg-fill ~/wallpapers/*
+feh --bg-fill ~/wallpapers/leaf_1.jpg
 # }}}----------------------------------------------------------------
 
 # Keybindings {{{
