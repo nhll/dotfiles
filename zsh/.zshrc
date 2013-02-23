@@ -13,6 +13,7 @@ alias ls="ls --color"
 
 alias gh="cd $HOME"
 alias rmrf="rm -rfv"
+alias irssi="sh ~/.dotfiles/irssi/irssi_nicklist.sh"
 # }}}
 
 # Stuff from holman's dotfiles {{{
