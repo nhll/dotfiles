@@ -8,7 +8,7 @@ set number
 " Folding
 set foldenable
 set foldmethod=marker
-set foldlevel=99 " unfold everything on start
+" set foldlevel=99 " unfold everything on start
 
 " Indentation and tabs
 set expandtab
