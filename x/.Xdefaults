@@ -1,21 +1,5 @@
-# urxvt settings
-URxvt.saveLines: 10000
-URxvt.scrollBar: false
-URxvt.foreground: white
-URxvt.background: #101010
-URxvt.secondaryScroll: true
-URxvt.font: xft:DejaVu Sans Mono:pixelsize=11:antialias=true:hinting=true
-URxvt.modifier: mod4
-
-XTerm.eightBitInput: false
-XTerm.metaSendsEscape: true
-
-# Xft settings
-Xft.antialias: true
-
-# xpdf settings
-xpdf.antialias: true
-
+# Colors {{{
+# -----------------------------------------------------------------
 ! Colors
 *background:                    #262626
 *foreground:                    #c2c2b0
@@ -45,3 +29,31 @@ xpdf.antialias: true
 ! LightGrey + White
 *color7:                        #998a7a
 *color15:                       #c2c2b0
+# }}}--------------------------------------------------------------
+
+# urxvt settings {{{
+# -----------------------------------------------------------------
+URxvt.saveLines: 10000
+URxvt.scrollBar: false
+URxvt.foreground: white
+URxvt.background: #101010
+URxvt.secondaryScroll: true
+URxvt.font: xft:DejaVu Sans Mono:pixelsize=11:antialias=true:hinting=true
+URxvt.modifier: mod4
+# }}}--------------------------------------------------------------
+
+# xterm settings {{{
+# -----------------------------------------------------------------
+XTerm.eightBitInput: false
+XTerm.metaSendsEscape: true
+# }}}--------------------------------------------------------------
+
+# Xft settings {{{
+# -----------------------------------------------------------------
+Xft.antialias: true
+# }}}--------------------------------------------------------------
+
+# xpdf settings {{{
+# -----------------------------------------------------------------
+xpdf.antialias: true
+# }}}--------------------------------------------------------------
