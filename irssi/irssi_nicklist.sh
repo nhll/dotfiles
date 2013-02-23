@@ -8,6 +8,7 @@ irssi_nickpane() {
     tmux selectl main-vertical;
     tmux selectw -t irssi;
     tmux selectp -t 0;
+    tmux send-keys -t 0 "/nicklist fifo" C-m;
 }
 
 irssi_repair() {
