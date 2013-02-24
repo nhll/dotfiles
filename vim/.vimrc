@@ -56,6 +56,7 @@ Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
 Bundle "honza/snipmate-snippets"
 Bundle 'garbas/vim-snipmate'
+Bundle 'ervandew/supertab'
 
 " Other Git Bundles
 Bundle 'git://git.wincent.com/command-t.git'
