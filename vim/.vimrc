@@ -27,6 +27,8 @@ set hlsearch " highlighting
 
 " Keybindings / Mappings {{{
 " ----------------------------------------------------------------
+let mapleader = ","
+
 " Save files with Ctrl+S no matter in which mode it's pressed
 noremap <silent> <C-S>      :Update<CR>
 vnoremap <silent> <C-S>     <C-C>:Update<CR>
