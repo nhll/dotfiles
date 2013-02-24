@@ -46,4 +46,19 @@ command -nargs=0 -bar Update if &modified
 
 " Plugins {{{
 " ----------------------------------------------------------------
+filetype off                        " required by vundle
+set rtp+=~/.vim/bundle/vundle
+call vundle#rc()
+Bundle 'gmarik/vundle'
+
+" Github Bundles
+Bundle "MarcWeber/vim-addon-mw-utils"
+Bundle "tomtom/tlib_vim"
+Bundle "honza/snipmate-snippets"
+Bundle 'garbas/vim-snipmate'
+
+" Other Git Bundles
+Bundle 'git://git.wincent.com/command-t.git'
+
+filetype plugin indent on           " required by vundle
 " ----------------------------------------------------------------}}}
