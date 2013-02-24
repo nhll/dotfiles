@@ -26,22 +26,14 @@ set hlsearch " highlighting
 " ----------------------------------------------------------------
 let mapleader = ","
 
+" Treat long, wrapped lines as break lines
+map j gj
+map k gk
+
 " Save files with Ctrl+S no matter in which mode it's pressed
 noremap <silent> <C-S>      :Update<CR>
 vnoremap <silent> <C-S>     <C-C>:Update<CR>
 inoremap <silent> <C-S>     <C-O>:Update<CR>
-" ----------------------------------------------------------------}}}
-
-" Custom commands {{{
-" ----------------------------------------------------------------
-" File saving
-command -nargs=0 -bar Update if &modified
-                           \|   if empty(bufname('%'))
-                           \|       browse confirm write
-                           \|   else
-                           \|       confirm write
-                           \|   endif
-                           \|endif
 " ----------------------------------------------------------------}}}
 
 " Plugins {{{
@@ -62,4 +54,16 @@ Bundle 'ervandew/supertab'
 Bundle 'git://git.wincent.com/command-t.git'
 
 filetype plugin indent on           " required by vundle
+" ----------------------------------------------------------------}}}
+"
+" Custom commands {{{
+" ----------------------------------------------------------------
+" File saving
+command -nargs=0 -bar Update if &modified
+                           \|   if empty(bufname('%'))
+                           \|       browse confirm write
+                           \|   else
+                           \|       confirm write
+                           \|   endif
+                           \|endif
 " ----------------------------------------------------------------}}}
