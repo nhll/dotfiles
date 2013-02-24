@@ -1,9 +1,13 @@
 " General config {{{
 " ----------------------------------------------------------------
+set nocompatible " vim mode
+
 syntax on
 colorscheme molokai
-set nocompatible
 set number
+
+" Pathogen
+execute pathogen#infect()
 
 " Folding
 set foldenable
@@ -43,5 +47,4 @@ command -nargs=0 -bar Update if &modified
 
 " Plugins {{{
 " ----------------------------------------------------------------
-
 " ----------------------------------------------------------------}}}
