@@ -43,10 +43,5 @@ command -nargs=0 -bar Update if &modified
 
 " Plugins {{{
 " ----------------------------------------------------------------
-" Vundle
-filetype off " required! 
-filetype plugin indent on " required!
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-Bundle 'gmarik/vundle' 
+
 " ----------------------------------------------------------------}}}
