@@ -6,9 +6,6 @@ syntax on
 colorscheme molokai
 set number
 
-" Pathogen
-execute pathogen#infect()
-
 " Folding
 set foldenable
 set foldmethod=marker
