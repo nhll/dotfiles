@@ -41,7 +41,6 @@
     Bundle "honza/snipmate-snippets"
     Bundle "MarcWeber/vim-addon-mw-utils"
     Bundle 'garbas/vim-snipmate'
-    Bundle 'ervandew/supertab'
 
     " Other Git Bundles
     Bundle 'git://git.wincent.com/command-t.git'
