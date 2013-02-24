@@ -37,9 +37,9 @@
     Bundle 'gmarik/vundle'
 
     " Github Bundles
-    Bundle "MarcWeber/vim-addon-mw-utils"       " Snipmate dependency
-    Bundle "tomtom/tlib_vim"                    " Snipmate dependency
-    Bundle "honza/snipmate-snippets"            " Snipmate dependency
+    Bundle "tomtom/tlib_vim"
+    Bundle "honza/snipmate-snippets"
+    Bundle "MarcWeber/vim-addon-mw-utils"
     Bundle 'garbas/vim-snipmate'
     Bundle 'ervandew/supertab'
 
