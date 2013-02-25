@@ -13,6 +13,8 @@
 " Appearance {{{
     syntax on                                   " Syntax highlighting
     set number                                  " Enable line numbers
+    set background=dark
+    set t_Co=256                                " 256 colors
     colorscheme molokai
 " }}}
 
@@ -41,6 +43,8 @@
     Bundle "honza/snipmate-snippets"
     Bundle "MarcWeber/vim-addon-mw-utils"
     Bundle 'garbas/vim-snipmate'
+    Bundle 'Shougo/neocomplcache'
+    let g:neocomplcache_enable_at_startup = 1   " Enable neocomplcache
 
     " Other Git Bundles
     Bundle 'git://git.wincent.com/command-t.git'
