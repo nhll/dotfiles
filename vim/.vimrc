@@ -8,6 +8,17 @@
     retab                                       " Replace tabs with spaces
     set ic                                      " Ignore case when searching
     set hlsearch                                " Highlight search results
+
+    set shortmess+=filmnrxoOtT                  " Avoids 'hit enter' messages
+    set virtualedit=onemore                     " Allow cursor beyond last character
+    set history=1000                            " Default: 20
+
+    set backup                                  " Keep backup file after overwriting
+    if has('persistent_undo')
+        set undofile
+        set undolevels=1000                     " Number of changes that can be undone
+        set undoreload=10000                    " Number of lines to save on buffer reload
+    endif
 " }}}
 
 " Appearance {{{
@@ -18,7 +29,7 @@
     colorscheme molokai
 " }}}
 
-" Keybindings / Mappings {{{
+" Key bindings / Mappings {{{
     let mapleader = ","
     
     map j gj
