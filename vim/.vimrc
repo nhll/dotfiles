@@ -87,11 +87,14 @@
     let mapleader = ","
     map j gj
     map k gk
+    nnoremap Y y$                               " Yank from cursor to EOL (like C and D)
 
     " Save files with Ctrl+S no matter in which mode it's pressed
     noremap <silent> <C-S>      :Update<CR>
     vnoremap <silent> <C-S>     <C-C>:Update<CR>
     inoremap <silent> <C-S>     <C-O>:Update<CR>
+
+    cmap w!! w !sudo tee % >/dev/null           " For when you forget the sudo.
 " }}}
 
 " Bundles {{{
