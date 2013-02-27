@@ -1,9 +1,5 @@
 " General {{{
     set nocompatible                            " Vim mode
-    set expandtab
-    set tabstop=4
-    set shiftwidth=4                            " Indent 4 spaces
-    retab                                       " Replace tabs with spaces
 
     " Initialize vundle for Bundle support {{{
         filetype off                            " Required 
@@ -17,8 +13,13 @@
     set virtualedit=onemore                     " Allow cursor beyond last character
     set history=1000                            " Default: 20
 
+    set directory=~/tmp/vim-swap,~/tmp,/tmp     " Directories for swap files
+
+    set backup
+    set backupdir=~/tmp/vim-backup              " Directory for backup files
     if has('persistent_undo')
         set undofile
+        set undodir^=~/tmp/vim-undo,~/tmp,/tmp  " Directories for undo files
         set undolevels=1000                     " Number of changes that can be undone
         set undoreload=10000                    " Number of lines to save on buffer reload
     endif
@@ -68,6 +69,18 @@
 
     set list
     set listchars=tab:,.,trail:.,extends:#,nbsp:.   " Highlight problematic whitespaces
+" }}}
+
+" Formatting {{{
+    " set nowrap                                  " Wrap long lines
+    set autoindent                              " Indent at the same level as previous line
+    set expandtab                               " Tabs = spaces
+    set shiftwidth=4                            " Indent 4 spaces
+    set tabstop=4                               " Indentation every 4 columns
+    set softtabstop=4                           " Backspace deletes indent
+
+    " Remove trailing whitespaces
+    autocmd FileType c,cpp,java,php,javascript,python,twig,xml,yml autocmd BufWritePre <buffer> call StripTrailingWhitespace()
 " }}}
 
 " Key bindings / Mappings {{{
