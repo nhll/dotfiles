@@ -78,9 +78,6 @@
     set shiftwidth=4                            " Indent 4 spaces
     set tabstop=4                               " Indentation every 4 columns
     set softtabstop=4                           " Backspace deletes indent
-
-    " Remove trailing whitespaces
-    autocmd FileType c,cpp,java,php,javascript,python,twig,xml,yml autocmd BufWritePre <buffer> call StripTrailingWhitespace()
 " }}}
 
 " Key bindings / Mappings {{{
