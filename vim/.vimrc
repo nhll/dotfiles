@@ -13,10 +13,10 @@
     set virtualedit=onemore                     " Allow cursor beyond last character
     set history=1000                            " Default: 20
 
-    set directory=~/tmp/vim-swap,~/tmp,/tmp     " Directories for swap files
+    set directory=~/.tmp/vim-swap,~/tmp,/tmp     " Directories for swap files
 
     set backup
-    set backupdir=~/tmp/vim-backup              " Directory for backup files
+    set backupdir=~/.tmp/vim-backup              " Directory for backup files
     if has('persistent_undo')
         set undofile
         set undodir^=~/tmp/vim-undo,~/tmp,/tmp  " Directories for undo files
