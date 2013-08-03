@@ -20,7 +20,7 @@
     hc keybind $Mod-Shift-r reload
     hc keybind $Mod-Shift-c close
     hc keybind $Mod-Return spawn urxvt
-    hc keybind $Mod-BackSpace spawn chromium
+    hc keybind $Mod-BackSpace spawn firefox
 
     # cycle through tags
     hc keybind $Mod-period use_index +1 --skip-visible
