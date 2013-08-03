@@ -19,7 +19,7 @@
     hc keybind $Mod-Shift-q quit
     hc keybind $Mod-Shift-r reload
     hc keybind $Mod-Shift-c close
-    hc keybind $Mod-Return spawn urxvt
+    hc keybind $Mod-Return spawn urxvt --loginShell
     hc keybind $Mod-BackSpace spawn uzbl-tabbed
 
     # cycle through tags
