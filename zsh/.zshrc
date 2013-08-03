@@ -1,6 +1,9 @@
 # General {{{
     # Enable vi-mode
     bindkey -v
+
+    # Expand environment variables
+    PATH="${PATH}:/home/nik/.gem/ruby/2.0.0/bin"
 # }}}
 
 # Aliases {{{
@@ -62,3 +65,11 @@
     autoload -Uz compinit
     compinit
 # }}} of lines added by compinstall
+
+# RVM {{{
+    # Needed to avoid RVM warnings
+    export rvmsudo_secure_path=0
+
+    alias rvm-prompt=/usr/local/rvm/bin/rvm-prompt
+    [[ -s "/usr/local/rvm/scripts/rvm" ]] && source "/usr/local/rvm/scripts/rvm"
+# }}}

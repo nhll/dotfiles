@@ -6,17 +6,28 @@ git_branch() {
   echo $(/usr/bin/git symbolic-ref HEAD 2>/dev/null | awk -F/ {'print $NF'})
 }
 
+# Yeah, this is ugly, but I'm a shell scripting noob and it works
 git_dirty() {
   st=$(/usr/bin/git status 2>/dev/null | tail -n 1)
   if [[ $st == "" ]]
   then
     echo ""
   else
-    if [[ $st == "nothing to commit (working directory clean)" ]]
+    if [[ $st == 'no changes added to commit (use "git add" and/or "git commit -a")' ]]
     then
-      echo "%{$fg_bold[green]%}$(git_prompt_info)%{$reset_color%} "
+      if [[ $(/usr/local/rvm/bin/rvm-prompt i v) == "" ]]
+      then
+        echo "%{$fg_bold[green]%}$(git_prompt_info)%{$reset_color%} "
+      else
+        echo "on %{$fg_bold[green]%}$(git_prompt_info)%{$reset_color%} "
+      fi
     else
-      echo "%{$fg_bold[red]%}$(git_prompt_info)%{$reset_color%} "
+      if [[ $(/usr/local/rvm/bin/rvm-prompt i v) == "" ]]
+      then
+        echo "%{$fg_bold[red]%}$(git_prompt_info)%{$reset_color%} "
+      else
+        echo "on %{$fg_bold[red]%}$(git_prompt_info)%{$reset_color%} "
+      fi
     fi
   fi
 }
@@ -69,6 +80,15 @@ todo(){
   fi
 }
 
+rvm_prompt() {
+    if [[ $(/usr/local/rvm/bin/rvm-prompt i v) == "" ]]
+    then
+        echo ""
+    else
+        echo "using %{$fg_bold[red]%}$(/usr/local/rvm/bin/rvm-prompt i v)%{$reset_color%} "
+    fi
+}
+
 directory_name(){
   curdir=$(/bin/pwd)
   if [[ $curdir == "/" ]]
@@ -88,7 +108,7 @@ host_name() {
 }
 
 # export PROMPT=$'$(user_name) in $(directory_name)$(git_dirty)$(need_push) » '
-export PROMPT='$(git_dirty)$(need_push)%{$fg_bold[cyan]%}>%{$reset_color%} '
+export PROMPT='$(rvm_prompt)$(git_dirty)$(need_push)%{$fg_bold[cyan]%}>%{$reset_color%} '
 
 set_prompt () {
   export RPROMPT="%{$fg_bold[cyan]%}$(todo)%{$reset_color%}"
