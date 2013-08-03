@@ -97,7 +97,7 @@
 " Bundles {{{
     " Github Bundles
     Bundle "tomtom/tlib_vim"
-    Bundle "honza/snipmate-snippets"
+    Bundle "honza/vim-snippets"
     Bundle "MarcWeber/vim-addon-mw-utils"
     Bundle 'garbas/vim-snipmate'
     Bundle 'tpope/vim-fugitive'
