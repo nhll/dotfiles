@@ -7,7 +7,7 @@
 
     hc emit_hook reload
 
-    feh --bg-fill ~/wallpapers/leaf_1.jpg
+    feh --bg-fill /mnt/daten/Bilder/WP/wallpaper-928021.jpg
 # }}}
 
 # Keybindings {{{

@@ -11,7 +11,6 @@
     # colorful ls
     alias ls="ls --color"
 
-    alias gh="cd $HOME"
     alias rmrf="rm -rfv"
     alias irssi="sh ~/.dotfiles/irssi/irssi_nicklist.sh"
 # }}}
@@ -47,3 +46,19 @@
     zle -N vi-yank-x-selection
     bindkey -a '^C' vi-yank-x-selection
 # }}}
+
+# Lines configured by zsh-newuser-install {{{
+    HISTFILE=~/.tmp/.zsh-history
+    HISTSIZE=250000
+    SAVEHIST=250000
+    setopt nomatch
+    unsetopt appendhistory autocd beep extendedglob notify
+    bindkey -v
+# }}}
+
+# Lines added by compinstall {{{
+    zstyle :compinstall filename '/home/nik/.zshrc'
+
+    autoload -Uz compinit
+    compinit
+# }}} of lines added by compinstall
