@@ -20,7 +20,8 @@
     hc keybind $Mod-Shift-r reload
     hc keybind $Mod-Shift-c close
     hc keybind $Mod-Return spawn urxvt --loginShell
-    hc keybind $Mod-BackSpace spawn uzbl-tabbed
+    hc keybind $Mod-F12 spawn uzbl-tabbed
+    hc keybind $Mod-F11 spawn firefox
 
     # cycle through tags
     hc keybind $Mod-period use_index +1 --skip-visible
