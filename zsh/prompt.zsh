@@ -70,7 +70,7 @@ todo(){
 rvm_prompt() {
     if $(which rvm &> /dev/null)
     then
-        rvm=$(/usr/local/rvm/bin/rvm-prompt i v)
+        rvm=$(/usr/local/rvm/bin/rvm-prompt i v g)
         if [[ $rvm == "" ]]
         then
             echo ""
