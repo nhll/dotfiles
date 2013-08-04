@@ -1,4 +1,6 @@
+
 " General {{{
+" ------------------------------------------------------------------------------
     set nocompatible                            " Vim mode
 
     " Initialize vundle for Bundle support {{{
@@ -26,6 +28,7 @@
 " }}}
 
 " Appearance {{{
+" ------------------------------------------------------------------------------
     syntax on                                   " Syntax highlighting
     set number                                  " Enable line numbers
     set background=dark
@@ -72,6 +75,7 @@
 " }}}
 
 " Formatting {{{
+" ------------------------------------------------------------------------------
     " set nowrap                                  " Wrap long lines
     set autoindent                              " Indent at the same level as previous line
     set expandtab                               " Tabs = spaces
@@ -81,34 +85,42 @@
 " }}}
 
 " Key bindings / Mappings {{{
+" ------------------------------------------------------------------------------
     let mapleader = ","
     map j gj
     map k gk
-    nnoremap Y y$                               " Yank from cursor to EOL (like C and D)
+    nnoremap Y y$
+    map <C-n> :NERDTreeToggle<CR>
 
     " Save files with Ctrl+S no matter in which mode it's pressed
     noremap <silent> <C-S>      :Update<CR>
     vnoremap <silent> <C-S>     <C-C>:Update<CR>
     inoremap <silent> <C-S>     <C-O>:Update<CR>
 
-    cmap w!! w !sudo tee % >/dev/null           " For when you forget the sudo.
+    cmap w!! w !sudo tee % >/dev/null
 " }}}
 
 " Bundles {{{
+" ------------------------------------------------------------------------------
     " Github Bundles
     Bundle "tomtom/tlib_vim"
     Bundle "honza/vim-snippets"
     Bundle "MarcWeber/vim-addon-mw-utils"
     Bundle 'garbas/vim-snipmate'
     Bundle 'tpope/vim-fugitive'
+
     Bundle 'Shougo/neocomplcache'
     let g:neocomplcache_enable_at_startup = 1   " Enable neocomplcache
+
+    Bundle 'scrooloose/nerdtree'
+    let g:NERDTreeDirArrows=0
 
     " Other Git Bundles
     Bundle 'git://git.wincent.com/command-t.git'
 " }}}
 
 " Custom commands {{{
+" ------------------------------------------------------------------------------
     " For saving with Ctrl+S
     command -nargs=0 -bar Update if &modified
                                \|   if empty(bufname('%'))
