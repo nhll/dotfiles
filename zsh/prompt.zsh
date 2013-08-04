@@ -6,13 +6,13 @@ git_branch() {
 
 git_dirty() {
     st=$(/usr/bin/git status 2>/dev/null | tail -n 1)
+    rvm=$(/usr/local/rvm/bin/rvm-prompt i v)
     if [[ $st == "" ]]
     then
         echo ""
     else
         if [[ $st == 'nothing to commit, working directory clean' ]]
         then
-            rvm=$(/usr/local/rvm/bin/rvm-prompt i v)
             if [[ $rvm == "" ]]
             then
                 echo "%{$fg_bold[green]%}$(git_prompt_info)%{$reset_color%} "
