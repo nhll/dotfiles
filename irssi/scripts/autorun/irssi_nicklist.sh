@@ -1,1 +1,0 @@
-../irssi_nicklist.sh
