@@ -1,5 +1,5 @@
 # General {{{
-    # Enable vi-mode
+    # Enable Emacs mode
     bindkey -e
 # }}}
 
@@ -11,7 +11,6 @@
     # colorful ls
     alias ls="ls --color"
 
-    alias gh="cd $HOME"
     alias rmrf="rm -rfv"
     alias irssi="sh ~/.dotfiles/irssi/irssi_nicklist.sh"
 # }}}
@@ -46,4 +45,28 @@
     vi-yank-x-selection () { print -rn -- $CUTBUFFER | xsel -i -p; }
     zle -N vi-yank-x-selection
     bindkey -a '^C' vi-yank-x-selection
+# }}}
+
+# Lines configured by zsh-newuser-install {{{
+    HISTFILE=~/.tmp/.zsh-history
+    HISTSIZE=250000
+    SAVEHIST=250000
+    setopt nomatch
+    unsetopt appendhistory autocd beep extendedglob notify
+    bindkey -v
+# }}}
+
+# Lines added by compinstall {{{
+    zstyle :compinstall filename '/home/nik/.zshrc'
+
+    autoload -Uz compinit
+    compinit
+# }}} of lines added by compinstall
+
+# RVM {{{
+    # Needed to avoid RVM warnings
+    export rvmsudo_secure_path=0
+
+    alias rvm-prompt=/usr/local/rvm/bin/rvm-prompt
+    [[ -s "/usr/local/rvm/scripts/rvm" ]] && source "/usr/local/rvm/scripts/rvm"
 # }}}

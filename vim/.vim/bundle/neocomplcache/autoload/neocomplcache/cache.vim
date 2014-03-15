@@ -1,7 +1,7 @@
 "=============================================================================
 " FILE: cache.vim
 " AUTHOR: Shougo Matsushita <Shougo.Matsu@gmail.com>
-" Last Modified: 02 Oct 2012.
+" Last Modified: 27 Jul 2013.
 " License: MIT license  {{{
 "     Permission is hereby granted, free of charge, to any person obtaining
 "     a copy of this software and associated documentation files (the
@@ -30,21 +30,23 @@ set cpo&vim
 let s:Cache = vital#of('neocomplcache').import('System.Cache')
 
 " Cache loader.
-function! neocomplcache#cache#check_cache_list(cache_dir, key, async_cache_dictionary, index_keyword_list) "{{{
+function! neocomplcache#cache#check_cache_list(cache_dir, key, async_cache_dictionary, index_keyword_list, ...) "{{{
   if !has_key(a:async_cache_dictionary, a:key)
     return
   endif
+
+  let is_string = get(a:000, 0, 0)
 
   let keyword_list = []
   let cache_list = a:async_cache_dictionary[a:key]
   for cache in cache_list
     if filereadable(cache.cachename)
-      let keyword_list +=
-            \ neocomplcache#cache#load_from_cache(a:cache_dir, cache.filename)
+      let keyword_list += neocomplcache#cache#load_from_cache(
+            \ a:cache_dir, cache.filename, is_string)
     endif
   endfor
 
-  call neocomplcache#cache#list2index(keyword_list, a:index_keyword_list)
+  call neocomplcache#cache#list2index(keyword_list, a:index_keyword_list, is_string)
   call filter(cache_list, '!filereadable(v:val.cachename)')
 
   if empty(cache_list)
@@ -52,20 +54,31 @@ function! neocomplcache#cache#check_cache_list(cache_dir, key, async_cache_dicti
     call remove(a:async_cache_dictionary, a:key)
   endif
 endfunction"}}}
-function! neocomplcache#cache#check_cache(cache_dir, key, async_cache_dictionary, keyword_list_dictionary) "{{{
+function! neocomplcache#cache#check_cache(cache_dir, key, async_cache_dictionary, keyword_list_dictionary, ...) "{{{
+  let is_string = get(a:000, 0, 0)
+
   " Caching.
   if !has_key(a:keyword_list_dictionary, a:key)
     let a:keyword_list_dictionary[a:key] = {}
   endif
   return neocomplcache#cache#check_cache_list(
         \ a:cache_dir, a:key, a:async_cache_dictionary,
-        \ a:keyword_list_dictionary[a:key])
+        \ a:keyword_list_dictionary[a:key], is_string)
 endfunction"}}}
-function! neocomplcache#cache#load_from_cache(cache_dir, filename) "{{{
+function! neocomplcache#cache#load_from_cache(cache_dir, filename, ...) "{{{
+  let is_string = get(a:000, 0, 0)
+
   try
-    return eval(get(neocomplcache#cache#readfile(
+    let list = eval(get(neocomplcache#cache#readfile(
           \ a:cache_dir, a:filename), 0, '[]'))
+    if !empty(list) && is_string && type(list[0]) != type('')
+      " Type check.
+      throw 'Type error'
+    endif
+
+    return list
   catch
+    " Delete old cache file.
     let cache_name =
           \ neocomplcache#cache#encode_name(a:cache_dir, a:filename)
     if filereadable(cache_name)
@@ -75,25 +88,15 @@ function! neocomplcache#cache#load_from_cache(cache_dir, filename) "{{{
     return []
   endtry
 endfunction"}}}
-function! neocomplcache#cache#load_from_cache_old(cache_dir, filename) "{{{
-  try
-    return map(map(neocomplcache#cache#readfile(a:cache_dir, a:filename),
-          \ 'split(v:val, "|||", 1)'), '{
-          \   "word" : v:val[0],
-          \   "abbr" : v:val[1],
-          \   "menu" : v:val[2],
-          \   "kind" : v:val[3],
-          \}')
-  catch /^Vim\%((\a\+)\)\=:E684:/
-    return []
-  endtry
-endfunction"}}}
-function! neocomplcache#cache#index_load_from_cache(cache_dir, filename) "{{{
+function! neocomplcache#cache#index_load_from_cache(cache_dir, filename, ...) "{{{
+  let is_string = get(a:000, 0, 0)
   let keyword_lists = {}
 
   let completion_length = 2
-  for keyword in neocomplcache#cache#load_from_cache(a:cache_dir, a:filename)
-    let key = tolower(keyword.word[: completion_length-1])
+  for keyword in neocomplcache#cache#load_from_cache(
+        \ a:cache_dir, a:filename, is_string)
+    let key = tolower(
+          \ (is_string ? keyword : keyword.word)[: completion_length-1])
     if !has_key(keyword_lists, key)
       let keyword_lists[key] = []
     endif
@@ -102,14 +105,16 @@ function! neocomplcache#cache#index_load_from_cache(cache_dir, filename) "{{{
 
   return keyword_lists
 endfunction"}}}
-function! neocomplcache#cache#list2index(list, dictionary) "{{{
+function! neocomplcache#cache#list2index(list, dictionary, is_string) "{{{
   let completion_length = 2
   for keyword in a:list
-    let key = tolower(keyword.word[: completion_length-1])
+    let word = a:is_string ? keyword : keyword.word
+
+    let key = tolower(word[: completion_length-1])
     if !has_key(a:dictionary, key)
       let a:dictionary[key] = {}
     endif
-    let a:dictionary[key][keyword.word] = keyword
+    let a:dictionary[key][word] = keyword
   endfor
 
   return a:dictionary
@@ -173,35 +178,6 @@ endfunction"}}}
 
 let s:sdir = neocomplcache#util#substitute_path_separator(
       \ fnamemodify(expand('<sfile>'), ':p:h'))
-
-" Async test.
-function! neocomplcache#cache#test_async() "{{{
-  if !neocomplcache#cache#check_old_cache(a:cache_dir, a:filename)
-    return neocomplcache#cache#encode_name(a:cache_dir, a:filename)
-  endif
-
-  let filename = neocomplcache#util#substitute_path_separator(
-        \ fnamemodify(expand('%'), ':p'))
-  let pattern_file_name =
-        \ neocomplcache#cache#encode_name('keyword_patterns', 'vim')
-  let cache_name =
-        \ neocomplcache#cache#encode_name('test_cache', filename)
-
-  " Create pattern file.
-  call neocomplcache#cache#writefile(
-        \ 'keyword_patterns', a:filename, [a:pattern])
-
-  " args: funcname, outputname, filename pattern mark
-  "       minlen maxlen encoding
-  let fileencoding =
-        \ &fileencoding == '' ? &encoding : &fileencoding
-  let argv = [
-        \  'load_from_file', cache_name, filename, pattern_file_name, '[B]',
-        \  g:neocomplcache_min_keyword_length,
-        \  g:neocomplcache_max_menu_width, fileencoding
-        \ ]
-  return s:async_load(argv, 'test_cache', filename)
-endfunction"}}}
 
 function! neocomplcache#cache#async_load_from_file(cache_dir, filename, pattern, mark) "{{{
   if !neocomplcache#cache#check_old_cache(a:cache_dir, a:filename)

@@ -36,7 +36,7 @@
 URxvt.saveLines: 10000
 URxvt.scrollBar: false
 URxvt.foreground: white
-URxvt.background: #101010
+URxvt.background: #303030
 URxvt.secondaryScroll: true
 URxvt.font: xft:DejaVu Sans Mono:pixelsize=11:antialias=true:hinting=true
 URxvt.modifier: mod4
