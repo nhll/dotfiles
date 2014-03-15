@@ -1,6 +1,6 @@
 # General {{{
     # Enable vi-mode
-    bindkey -v
+    bindkey -e
 # }}}
 
 # Aliases {{{
