@@ -3,14 +3,6 @@
 " ------------------------------------------------------------------------------
     set nocompatible                            " Vim mode
 
-    " Initialize vundle for Bundle support {{{
-        filetype off                            " Required 
-        filetype plugin indent on               " Required 
-        set rtp+=~/.vim/bundle/vundle
-        call vundle#rc()
-        Bundle 'gmarik/vundle'
-    " }}}
-
     set shortmess+=filmnrxoOtT                  " Avoids 'hit enter' messages
     set virtualedit=onemore                     " Allow cursor beyond last character
     set history=1000                            " Default: 20
@@ -103,20 +95,11 @@
 " Bundles {{{
 " ------------------------------------------------------------------------------
     " Set up pathogen.vim
+    runtime bundle/vim-pathogen/autoload/pathogen.vim
     execute pathogen#infect()
 
-    " Github Bundles
-    Bundle "tomtom/tlib_vim"
-    Bundle "honza/vim-snippets"
-    Bundle "MarcWeber/vim-addon-mw-utils"
-    Bundle 'garbas/vim-snipmate'
-    Bundle 'tpope/vim-fugitive'
-
-    Bundle 'scrooloose/nerdtree'
+    " NERDTree configuration
     let g:NERDTreeDirArrows=0
-
-    " Other Git Bundles
-    Bundle 'git://git.wincent.com/command-t.git'
 " }}}
 
 " Custom commands {{{
