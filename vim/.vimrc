@@ -102,15 +102,15 @@
 
 " Bundles {{{
 " ------------------------------------------------------------------------------
+    " Set up pathogen.vim
+    execute pathogen#infect()
+
     " Github Bundles
     Bundle "tomtom/tlib_vim"
     Bundle "honza/vim-snippets"
     Bundle "MarcWeber/vim-addon-mw-utils"
     Bundle 'garbas/vim-snipmate'
     Bundle 'tpope/vim-fugitive'
-
-    Bundle 'Shougo/neocomplcache'
-    let g:neocomplcache_enable_at_startup = 1   " Enable neocomplcache
 
     Bundle 'scrooloose/nerdtree'
     let g:NERDTreeDirArrows=0
