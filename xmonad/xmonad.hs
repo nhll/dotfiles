@@ -7,5 +7,8 @@ import System.IO
 
 main = xmonad defaultConfig
         { modMask = mod4Mask
-        , borderWidth = 2
+        , terminal = "urxvtc"
+        , borderWidth = 1
+        , normalBorderColor = "#303030"
+        , focusedBorderColor = "#c47f2c"
         }
