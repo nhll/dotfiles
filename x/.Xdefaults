@@ -1,59 +1,59 @@
-# Colors {{{
-# -----------------------------------------------------------------
+! Colors {{{
+! -----------------------------------------------------------------
 ! Colors
-*background:                    #262626
-*foreground:                    #c2c2b0
+*background:                    #101010
+*foreground:                    #d0d0d0
+*cursorColor:                   #d0d0d0
 
 ! Black + DarkGrey
-*color0:                        #262626
-*color8:                        #73675b
+*color0:                        #101010
+*color8:                        #303030
 ! DarkRed + Red
-*color1:                        #a64211
-*color9:                        #cc5214
+*color1:                        #960050
+*color9:                        #ff0090
 ! DarkGreen + Green
-*color2:                        #638046
-*color10:                       #80a65b
+*color2:                        #66aa11
+*color10:                       #80ff00
 ! DarkYellow + Yellow
-*color3:                        #bf8c25
-*color11:                       #e6a82d
+*color3:                        #c47f2c
+*color11:                       #ffba68
 ! DarkBlue + Blue
-*color4:                        #4d6d99
-*color12:                       #6088bf
+*color4:                        #30309b
+*color12:                       #5f5fee
 ! DarkMangenta + Mangenta
-*color5:                        #996b89
-*color13:                       #bf86ac
+*color5:                        #7e40a5
+*color13:                       #bb88dd
 ! DarkCyan + Cyan
-*color6:                        #6b8e99
-#*color14:                       #86b1bf
-*color14:                       #1793d1
+*color6:                        #3579a8
+*color14:                       #4eb4fa
 ! LightGrey + White
-*color7:                        #998a7a
-*color15:                       #c2c2b0
-# }}}--------------------------------------------------------------
+*color7:                        #9999aa
+*color15:                       #d0d0d0
+! }}}--------------------------------------------------------------
 
-# URxvt {{{
-# -----------------------------------------------------------------
+! URxvt {{{
+! -----------------------------------------------------------------
 URxvt.saveLines: 10000
 URxvt.scrollBar: false
-URxvt.foreground: white
-URxvt.background: #303030
+URxvt.foreground: #d0d0d0
+URxvt.background: #101010
 URxvt.secondaryScroll: true
-URxvt.font: xft:DejaVu Sans Mono:pixelsize=11:antialias=true:hinting=true
+URxvt.font: xft:DejaVu Sans Mono:pixelsize=16:antialias=true:hinting=true
 URxvt.modifier: mod4
-# }}}--------------------------------------------------------------
+! }}}--------------------------------------------------------------
 
-# XTerm {{{
-# -----------------------------------------------------------------
+! XTerm {{{
+! -----------------------------------------------------------------
 XTerm.eightBitInput: false
 XTerm.metaSendsEscape: true
-# }}}--------------------------------------------------------------
+! }}}--------------------------------------------------------------
 
-# Xft {{{
-# -----------------------------------------------------------------
+! Xft {{{
+! -----------------------------------------------------------------
 Xft.antialias: true
-# }}}--------------------------------------------------------------
+! }}}--------------------------------------------------------------
 
-# xpdf {{{
-# -----------------------------------------------------------------
+! xpdf {{{
+! -----------------------------------------------------------------
 xpdf.antialias: true
-# }}}--------------------------------------------------------------
+! }}}--------------------------------------------------------------
