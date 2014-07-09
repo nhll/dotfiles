@@ -5,8 +5,16 @@ import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig(additionalKeys)
 import System.IO
 
-main = xmonad defaultConfig
-        { modMask = mod4Mask
+main = do
+    xmproc <- spawnPipe "xmobar"
+    xmonad $ defaultConfig
+        { manageHook = manageDocks <+> manageHook defaultConfig
+        , layoutHook = avoidStruts  $  layoutHook defaultConfig
+        , logHook = dynamicLogWithPP xmobarPP
+                        { ppOutput = hPutStrLn xmproc
+                        , ppTitle = xmobarColor "green" "" . shorten 50
+                        }
+        , modMask = mod4Mask
         , terminal = "urxvtc"
         , borderWidth = 1
         , normalBorderColor = "#303030"
