@@ -3,14 +3,16 @@ Config { font = "xft:DejaVu Sans Mono:size=14:antialias=true"
        , fgColor = "#d0d0d0"
        , position = TopW L 100
        , lowerOnStart = True
-       , commands = [ Run Weather "EGPF" ["-t","TMP <tempC>°C","-L","10","-H","25","--normal","#f4bf75","--high","#ac4142","--low","#75b5aa"] 36000
-                    , Run Cpu ["-L","25","-H","75","--normal","#f4bf75","--high","#ac4142","--low","#90a959"] 10
-                    , Run Memory ["-t","MEM <usedratio>%"] 10
-                    , Run Swap [] 10
-                    , Run Date "%a %b %_d %l:%M" "date" 10
+       , commands = [ Run Weather "EDDI" ["-t","<fc=#505050>TEMP</fc> <tempC><fc=#505050>°C</fc>","-L","10","-H","25","--normal","#f4bf75","--high","#ac4142","--low","#75b5aa"] 3000
+                    , Run MultiCpu ["-t","<fc=#505050>CPU</fc> <autototal>","-L","25","-H","75","--normal","#f4bf75","--high","#ac4142","--low","#90a959"] 10
+                    , Run Memory ["-t","<fc=#505050>MEM</fc> <usedratio><fc=#505050>%</fc>","-L","25","-H","75","--normal","#f4bf75","--high","#ac4142","--low","#90a959"] 10
+                    , Run Network "wlan0" ["-t","<fc=#505050>RX</fc> <rx><fc=#505050>KB/s</fc>  <fc=#505050>TX</fc> <tx><fc=#505050>KB/s</fc>","-L","500","-H","3000","--normal","#f4bf75","--low","#90a959","--high","#ac4142"] 10
+                    , Run Wireless "wlan0" ["-t","<fc=#505050>SSID</fc> <essid>"] 10
+                    , Run Battery ["-t","<fc=#505050>BAT</fc> <left><fc=#505050>%</fc>","-L","10","-H","80","--normal","#f4bf75","--high","#90a959","--low","#ac4142"] 600
+                    , Run Date "%d.%m. %H:%M" "date" 10
                     , Run StdinReader
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = " %StdinReader% }{ %cpu% | %memory%  %swap%  %EGPF%  <fc=#151515,#90a959> %date% </fc>"
+       , template = " %StdinReader% }{ %multicpu%  %memory%  %wlan0%  %wlan0wi%  %battery%  %EDDI%  <fc=#505050>%date%</fc>"
        }
