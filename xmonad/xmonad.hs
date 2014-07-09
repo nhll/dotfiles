@@ -1,3 +1,4 @@
+import Graphics.X11.ExtraTypes.XF86
 import XMonad
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
@@ -19,4 +20,7 @@ main = do
         , borderWidth = 2
         , normalBorderColor = "#202020"
         , focusedBorderColor = "#90a959"
-        }
+        } `additionalKeys`
+        [ ((0, xF86XK_MonBrightnessDown), spawn "xbacklight -10")
+        , ((0, xF86XK_MonBrightnessUp), spawn "xbacklight +10")
+        ]
