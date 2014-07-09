@@ -1,1 +1,16 @@
---- Nothing to see here yet
+Config { font = "xft:DejaVu Sans Mono:size=14:antialias=true"
+       , bgColor = "black"
+       , fgColor = "grey"
+       , position = TopW L 100
+       , lowerOnStart = True
+       , commands = [ Run Weather "EGPF" ["-t"," <tempC>°C","-L","10","-H","25","--normal","yellow","--high","red","--low","lightblue"] 36000
+                    , Run Cpu ["-L","25","-H","75","--normal","yellow","--high","red","--low","green"] 10
+                    , Run Memory ["-t","MEM <usedratio>%"] 10
+                    , Run Swap [] 10
+                    , Run Date "%a %b %_d %l:%M" "date" 10
+                    , Run StdinReader
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = " %StdinReader% }{ %cpu% | %memory% * %swap%    <fc=#ee9a00>%date%</fc> | %EGPF% "
+       }
