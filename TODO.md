@@ -1,4 +1,6 @@
 # .-files TODO
 
 + Pasting stuff to urxvt via shift + insert
-+ Xmobar: separate threshold for network TX
++ XMobar:
+    - Separate threshold for network TX
+    - Integrate volume + MPD plugins
