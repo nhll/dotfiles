@@ -12,11 +12,11 @@ main = do
         , layoutHook = avoidStruts  $  layoutHook defaultConfig
         , logHook = dynamicLogWithPP xmobarPP
                         { ppOutput = hPutStrLn xmproc
-                        , ppTitle = xmobarColor "green" "" . shorten 50
+                        , ppTitle = xmobarColor "#90a959" "" . shorten 50
                         }
         , modMask = mod4Mask
         , terminal = "urxvtc"
         , borderWidth = 2
-        , normalBorderColor = "#303030"
-        , focusedBorderColor = "#c47f2c"
+        , normalBorderColor = "#202020"
+        , focusedBorderColor = "#90a959"
         }
