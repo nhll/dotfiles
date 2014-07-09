@@ -23,4 +23,7 @@ main = do
         } `additionalKeys`
         [ ((0, xF86XK_MonBrightnessDown), spawn "xbacklight -10")
         , ((0, xF86XK_MonBrightnessUp), spawn "xbacklight +10")
+        , ((0, xF86XK_AudioLowerVolume), spawn "amixer set Master 2%- unmute")
+        , ((0, xF86XK_AudioRaiseVolume), spawn "amixer set Master 2%+ unmute")
+        , ((0, xF86XK_AudioMute), spawn "amixer set Master toggle")
         ]
