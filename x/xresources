@@ -1,38 +1,6 @@
-! Colors {{{
-! -----------------------------------------------------------------
-! Colors
-*background:                    #101010
-*foreground:                    #d0d0d0
-*cursorColor:                   #d0d0d0
-
-! Black + DarkGrey
-*color0:                        #101010
-*color8:                        #303030
-! DarkRed + Red
-*color1:                        #960050
-*color9:                        #ff0090
-! DarkGreen + Green
-*color2:                        #66aa11
-*color10:                       #80ff00
-! DarkYellow + Yellow
-*color3:                        #c47f2c
-*color11:                       #ffba68
-! DarkBlue + Blue
-*color4:                        #30309b
-*color12:                       #5f5fee
-! DarkMangenta + Mangenta
-*color5:                        #7e40a5
-*color13:                       #bb88dd
-! DarkCyan + Cyan
-*color6:                        #3579a8
-*color14:                       #4eb4fa
-! LightGrey + White
-*color7:                        #9999aa
-*color15:                       #d0d0d0
-! }}}--------------------------------------------------------------
+#include ".Xcolors"
 
 ! URxvt {{{
-! -----------------------------------------------------------------
 URxvt.saveLines: 10000
 URxvt.scrollBar: false
 URxvt.foreground: #d0d0d0
@@ -40,20 +8,18 @@ URxvt.background: #101010
 URxvt.secondaryScroll: true
 URxvt.font: xft:DejaVu Sans Mono:pixelsize=18:antialias=true:hinting=true
 URxvt.modifier: mod4
-! }}}--------------------------------------------------------------
+URxvt.intensityStyles: false
+! }}}
 
 ! XTerm {{{
-! -----------------------------------------------------------------
 XTerm.eightBitInput: false
 XTerm.metaSendsEscape: true
-! }}}--------------------------------------------------------------
+! }}}
 
 ! Xft {{{
-! -----------------------------------------------------------------
 Xft.antialias: true
-! }}}--------------------------------------------------------------
+! }}}
 
 ! xpdf {{{
-! -----------------------------------------------------------------
 xpdf.antialias: true
-! }}}--------------------------------------------------------------
+! }}}
