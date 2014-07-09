@@ -16,7 +16,7 @@ main = do
                         }
         , modMask = mod4Mask
         , terminal = "urxvtc"
-        , borderWidth = 1
+        , borderWidth = 2
         , normalBorderColor = "#303030"
         , focusedBorderColor = "#c47f2c"
         }
