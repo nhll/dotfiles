@@ -25,6 +25,7 @@
     set number                                  " Enable line numbers
     set background=dark
     set t_Co=256                                " 256 colors
+    let base16colorspace=256
     colorscheme base16-default
 
     set showmode                                " Display the current mode
