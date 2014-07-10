@@ -14,7 +14,7 @@ Config { font = "xft:Inconsolata:size=18:antialias=true"
                     , Run Network  "wlan0"  [ "-t", "DOWN <rx>KB/s",    "-L", "500", "-H", "3000", "--low", "#6a9fb5", "--normal", "#f4bf75", "--high", "#ac4142" ] 10
                     , Run MultiCpu          [ "-t", "CPU <total>%",     "-L",  "50", "-H",   "75", "--low", "#6a9fb5", "--normal", "#f4bf75", "--high", "#ac4142" ] 10
                     , Run Memory            [ "-t", "MEM <usedratio>%", "-L",  "60", "-H",   "80", "--low", "#6a9fb5", "--normal", "#f4bf75", "--high", "#ac4142" ] 10
-                    , Run Battery           [ "-t", "BAT <left>%",      "-L",   "5", "-H",   "15", "--low", "#ac4142", "--normal", "#f4bf75", "--high", "#6a9fb5" ] 600
+                    , Run Battery           [ "-t", "BAT <left>%",      "-L",  "10", "-H",   "20", "--low", "#ac4142", "--normal", "#f4bf75", "--high", "#6a9fb5" ] 600
                     , Run StdinReader
                     ]
        , sepChar = "%"
