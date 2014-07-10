@@ -25,7 +25,7 @@
     set number                                  " Enable line numbers
     set background=dark
     set t_Co=256                                " 256 colors
-    colorscheme molokai
+    colorscheme base16-default
 
     set showmode                                " Display the current mode
     set cursorline                              " Highlight the current line
