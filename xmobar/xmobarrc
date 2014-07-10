@@ -1,23 +1,23 @@
 Config { font = "xft:Inconsolata:size=18:antialias=true"
        , bgColor = "#151515"
-       , fgColor = "#d0d0d0"
-       , position = Static { xpos = 0
-                           , ypos = -8
-                           , width = 2560
+       , fgColor = "#505050"
+       , position = Static { xpos   = 0
+                           , ypos   = -8
+                           , width  = 2560
                            , height = 50
                            }
        , lowerOnStart = True
-       , commands = [ Run Weather "EDDI" ["-t","<tempC><fc=#505050>°C</fc>","-L","10","-H","25","--normal","#505050","--high","#505050","--low","#505050"] 3000
-                    , Run MultiCpu ["-t","<fc=#505050>CPU</fc> <autototal>","-L","25","-H","75","--normal","#f4bf75","--high","#ac4142","--low","#90a959"] 10
-                    , Run Memory ["-t","<fc=#505050>MEM</fc> <usedratio><fc=#505050>%</fc>","-L","25","-H","75","--normal","#f4bf75","--high","#ac4142","--low","#90a959"] 10
-                    , Run Network "wlan0" ["-t","<fc=#505050>RX</fc> <rx><fc=#505050>KB/s</fc>  <fc=#505050>TX</fc> <tx><fc=#505050>KB/s</fc>","-L","500","-H","3000","--normal","#f4bf75","--low","#90a959","--high","#ac4142"] 10
-                    , Run Wireless "wlan0" ["-t","<fc=#505050>SSID</fc> <essid>"] 10
-                    , Run Battery ["-t","<fc=#505050>BAT</fc> <left><fc=#505050>%</fc>","-L","10","-H","80","--normal","#f4bf75","--high","#90a959","--low","#ac4142"] 600
-                    , Run Date "%d.%m." "date" 10
-                    , Run Date "%H:%M" "time" 10
+       , commands = [ Run Date     "%d.%m." "date" 10
+                    , Run Date     "%H:%M"  "time" 10
+                    , Run Weather  "EDDI"   [ "-t", "<tempC>°C" ] 3000
+                    , Run Wireless "wlan0"  [ "-t", "SSID <fc=#6a9fb5><essid></fc>" ] 10
+                    , Run Network  "wlan0"  [ "-t", "DOWN <rx>KB/s",    "-L", "500", "-H", "3000", "--low", "#6a9fb5", "--normal", "#f4bf75", "--high", "#ac4142" ] 10
+                    , Run MultiCpu          [ "-t", "CPU <total>%",     "-L",  "50", "-H",   "75", "--low", "#6a9fb5", "--normal", "#f4bf75", "--high", "#ac4142" ] 10
+                    , Run Memory            [ "-t", "MEM <usedratio>%", "-L",  "60", "-H",   "80", "--low", "#6a9fb5", "--normal", "#f4bf75", "--high", "#ac4142" ] 10
+                    , Run Battery           [ "-t", "BAT <left>%",      "-L",   "5", "-H",   "15", "--low", "#ac4142", "--normal", "#f4bf75", "--high", "#6a9fb5" ] 600
                     , Run StdinReader
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = " %StdinReader% } <fc=#505050>%date%</fc> %time% %EDDI%   { %multicpu%  %memory%  %wlan0%  %wlan0wi%  %battery% "
+       , template = " %StdinReader% } %date% <fc=#6a9fb5>%time%</fc> %EDDI%   { %multicpu%  %memory%  %wlan0%  %wlan0wi%  %battery% "
        }
