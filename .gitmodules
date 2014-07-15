@@ -28,3 +28,6 @@
 [submodule "vim/vim/bundle/vim-fireplace"]
 	path = vim/vim/bundle/vim-fireplace
 	url = https://github.com/tpope/vim-fireplace
+[submodule "vim/vim/bundle/paredit.vim"]
+	path = vim/vim/bundle/paredit.vim
+	url = https://github.com/vim-scripts/paredit.vim
