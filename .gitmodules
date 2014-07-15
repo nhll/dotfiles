@@ -22,3 +22,6 @@
 [submodule "vim/vim/bundle/vim-pathogen"]
 	path = vim/vim/bundle/vim-pathogen
 	url = https://github.com/tpope/vim-pathogen
+[submodule "vim/vim/bundle/vim-clojure-static"]
+	path = vim/vim/bundle/vim-clojure-static
+	url = https://github.com/guns/vim-clojure-static
