@@ -102,6 +102,9 @@
     " NERDTree configuration
     let g:NERDTreeDirArrows=0
 
+    " Paredit.vim
+    let g:paredit_electric_return=0
+
     " Rainbow Parentheses
     au VimEnter * RainbowParenthesesToggle
     au Syntax   * RainbowParenthesesLoadRound
