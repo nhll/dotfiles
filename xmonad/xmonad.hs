@@ -33,6 +33,17 @@ myLogHook h = dynamicLogWithPP $ defaultPP
 
 myKeys =
     [ ("M-p",                       spawn "dmenu_run -h 42 -fn Inconsolata-16")
+    , ("M-<F1>",                    spawn "randbg")
+    , ("M-<F2>",                    spawn "randbg 'math|maths|mathematics'")
+    , ("M-<F3>",                    spawn "randbg 'alcohol|drunk'")
+    , ("M-<F4>",                    spawn "randbg 'berlin'")
+    , ("M-<F5>",                    spawn "randbg 'funny|hilarious'")
+    , ("M-<F6>",                    spawn "randbg 'elegant|simple|minimalistic'")
+    , ("M-<F7>",                    spawn "randbg 'music|electro|minimal|party'")
+    , ("M-<F8>",                    spawn "randbg 'graffiti|streetart'")
+    , ("M-<F9>",                    spawn "randbg 'fractals|fractal'")
+    , ("M-<F10>",                   spawn "randbg 'computer|tech|technic|programming'")
+    , ("M-<F11>",                   spawn "randbg 'nature|landscape'")
     -- Multimedia keys
     , ("<XF86AudioLowerVolume>",    spawn "amixer set Master 2%- unmute")
     , ("<XF86AudioRaiseVolume>",    spawn "amixer set Master 2%+ unmute")
