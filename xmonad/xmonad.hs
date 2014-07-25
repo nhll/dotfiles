@@ -32,7 +32,7 @@ myLogHook h = dynamicLogWithPP $ defaultPP
     }
 
 myKeys =
-    [ ("M-p",                       spawn "dmenu_run -h 42 -fn Inconsolata-16")
+    [ ("M-p",                       spawn "dmenu_run -nb '#151515' -nf '#505050' -sb '#6a9fb5' -sf '#151515' -h 42 -fn Inconsolata-16")
     , ("M-<F1>",                    spawn "randbg")
     , ("M-<F2>",                    spawn "randbg 'math|maths|mathematics'")
     , ("M-<F3>",                    spawn "randbg 'alcohol|drunk'")
