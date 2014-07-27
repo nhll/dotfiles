@@ -4,6 +4,7 @@ import XMonad
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
+import XMonad.Layout.Fullscreen
 import XMonad.Layout.NoBorders
 import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig
@@ -14,7 +15,7 @@ main = do
     xmobar <- spawnPipe "xmobar"
     xmonad $ defaultConfig
         { manageHook         = myManageHook
-        , layoutHook         = smartBorders (avoidStruts  $  layoutHook defaultConfig)
+        , layoutHook         = myLayoutHook
         , logHook            = myLogHook xmobar
         , modMask            = mod4Mask
         , terminal           = "urxvtc"
@@ -24,7 +25,15 @@ main = do
         } 
         `additionalKeysP` myKeys
 
-myManageHook = composeOne [ isFullscreen -?> doFullFloat ]
+myManageHook = composeOne
+    [ isFullscreen -?> doFullFloat
+    ]
+
+myLayoutHook = smartBorders (
+    avoidStruts (
+    Tall 1 (3/100) (1/2) |||
+    Mirror (Tall 1 (3/100) (1/2))) |||
+    noBorders (fullscreenFull Full))
 
 myLogHook h = dynamicLogWithPP $ defaultPP 
     { ppOutput = hPutStrLn h
