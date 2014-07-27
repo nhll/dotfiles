@@ -4,6 +4,7 @@ import XMonad
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
+import XMonad.Layout.NoBorders
 import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig
 import Graphics.X11.ExtraTypes.XF86
@@ -13,7 +14,7 @@ main = do
     xmobar <- spawnPipe "xmobar"
     xmonad $ defaultConfig
         { manageHook         = myManageHook
-        , layoutHook         = avoidStruts  $  layoutHook defaultConfig
+        , layoutHook         = smartBorders (avoidStruts  $  layoutHook defaultConfig)
         , logHook            = myLogHook xmobar
         , modMask            = mod4Mask
         , terminal           = "urxvtc"
