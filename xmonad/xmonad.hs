@@ -3,6 +3,7 @@ import qualified Data.Map as M
 import XMonad
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
+import XMonad.Hooks.ManageHelpers
 import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig
 import Graphics.X11.ExtraTypes.XF86
@@ -11,7 +12,7 @@ import System.IO
 main = do
     xmobar <- spawnPipe "xmobar"
     xmonad $ defaultConfig
-        { manageHook         = manageDocks <+> manageHook defaultConfig
+        { manageHook         = myManageHook
         , layoutHook         = avoidStruts  $  layoutHook defaultConfig
         , logHook            = myLogHook xmobar
         , modMask            = mod4Mask
@@ -21,6 +22,8 @@ main = do
         , focusedBorderColor = "#6a9fb5"
         } 
         `additionalKeysP` myKeys
+
+myManageHook = composeOne [ isFullscreen -?> doFullFloat ]
 
 myLogHook h = dynamicLogWithPP $ defaultPP 
     { ppOutput = hPutStrLn h
