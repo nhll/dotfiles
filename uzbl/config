@@ -385,9 +385,9 @@ set formfiller = spawn @scripts_dir/formfiller.sh
 # Tab navigating
 @cbind  g<              = event FIRST_TAB
 @cbind  g>              = event LAST_TAB
-@cbind  gt              = event NEXT_TAB
-@cbind  gT              = event PREV_TAB
-@cbind  gi<index:>_     = event GOTO_TAB %s
+@cbind  <Ctrl>n         = event NEXT_TAB
+@cbind  <Ctrl>p         = event PREV_TAB
+@cbind  gt<index:>_     = event GOTO_TAB %s
 
 # Preset loading
 set preset = event PRESET_TABS
