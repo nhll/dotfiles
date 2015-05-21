@@ -27,6 +27,8 @@
 
     Plugin 'gmarik/Vundle.vim'
 
+    Plugin 'tpope/vim-fugitive'
+
     call vundle#end()
     filetype plugin indent on
 " }}}
