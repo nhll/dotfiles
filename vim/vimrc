@@ -1,112 +1,118 @@
 
 " General {{{
 " ------------------------------------------------------------------------------
-    set nocompatible                            " Vim mode
-    filetype off
+set nocompatible                            " Vim mode
+filetype off
 
-    set shortmess+=filmnrxoOtT                  " Avoids 'hit enter' messages
-    set virtualedit=onemore                     " Allow cursor beyond last character
-    set history=1000                            " Default: 20
-    set timeoutlen=50
+set shortmess+=filmnrxoOtT                  " Avoids 'hit enter' messages
+set virtualedit=onemore                     " Allow cursor beyond last character
+set history=1000                            " Default: 20
+set timeoutlen=50
 
-    set directory=~/.tmp/vim-swap,~/.tmp,/tmp   " Directories for swap files
+set directory=~/.tmp/vim-swap,~/.tmp,/tmp   " Directories for swap files
 
-    set backup
-    set backupdir=~/.tmp/vim-backup              " Directory for backup files
-    if has('persistent_undo')
-        set undofile
-        set undodir=~/.tmp/vim-undo,~/.tmp,/tmp " Directories for undo files
-        set undolevels=1000                     " Number of changes that can be undone
-        set undoreload=10000                    " Number of lines to save on buffer reload
-    endif
+set backup
+set backupdir=~/.tmp/vim-backup              " Directory for backup files
+if has('persistent_undo')
+    set undofile
+    set undodir=~/.tmp/vim-undo,~/.tmp,/tmp " Directories for undo files
+    set undolevels=1000                     " Number of changes that can be undone
+    set undoreload=10000                    " Number of lines to save on buffer reload
+endif
 " }}}
 
 " Bundles {{{
 " ------------------------------------------------------------------------------
-    set rtp+=~/.vim/bundle/Vundle.vim " set the runtime path to include Vundle and initialize
-    call vundle#begin()
+set rtp+=~/.vim/bundle/Vundle.vim " set the runtime path to include Vundle and initialize
+call vundle#begin()
 
-    Plugin 'gmarik/Vundle.vim'
+Plugin 'gmarik/Vundle.vim'
 
-    Plugin 'tpope/vim-fugitive'
-    Plugin 'bling/vim-airline'
-    let g:airline_powerline_fonts = 1
-    let g:airline#extensions#tabline#enabled = 1
+Plugin 'bling/vim-airline'        " Fancy statusline
+Plugin 'tpope/vim-fugitive'
+Plugin 'mhinz/vim-signify'        " VCS diff next to the line numbers
+let g:signify_vcs_list = ['git']  " Only use Signify with Git
 
-    call vundle#end()
-    filetype plugin indent on
+call vundle#end()
+filetype plugin indent on
+" }}}
+
+" Statusline Configuration {{{
+" ------------------------------------------------------------------------------
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
 " }}}
 
 " Appearance {{{
 " ------------------------------------------------------------------------------
-    syntax on                                   " Syntax highlighting
-    set number                                  " Enable line numbers
-    set background=dark
-    set t_Co=256                                " 256 colors
-    let base16colorspace=256
-    colorscheme solarized
+syntax on                                   " Syntax highlighting
+set number                                  " Enable line numbers
+set background=dark
+set t_Co=256                                " 256 colors
+let base16colorspace=256
+colorscheme solarized
 
-    set showmode                                " Display the current mode
-    set cursorline                              " Highlight the current line
+set showmode                                " Display the current mode
+set cursorline                              " Highlight the current line
 
-    if has('cmdline_info')
-        set ruler
-        set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%) " From spf13
-        set showcmd                             " Show partial commands on status line
-    endif
+if has('cmdline_info')
+    set ruler
+    set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%) " From spf13
+    set showcmd                             " Show partial commands on status line
+endif
 
-    if has('statusline')
-        set laststatus=2
+if has('statusline')
+    set laststatus=2
 
-        set statusline=%<%f\                        " Filename
-        set statusline+=%w%h%m%r                    " Options
-        set statusline+=%{fugitive#statusline()}    " Git Hotness
-        set statusline+=\ [%{&ff}/%Y]               " Filetype
-        set statusline+=\ [%{getcwd()}]             " Current dir
-        set statusline+=%=%-14.(%l,%c%V%)\ %p%%     " Right aligned file nav info
-    endif
+    set statusline=%<%f\                        " Filename
+    set statusline+=%w%h%m%r                    " Options
+    set statusline+=%{fugitive#statusline()}    " Git Hotness
+    set statusline+=\ [%{&ff}/%Y]               " Filetype
+    set statusline+=\ [%{getcwd()}]             " Current dir
+    set statusline+=%=%-14.(%l,%c%V%)\ %p%%     " Right aligned file nav info
+endif
 
-    set backspace=indent,eol,start                  " Backspace for dummies (spf13)
-    set linespace=0                                 " No extra spaces between rows
+set backspace=indent,eol,start                  " Backspace for dummies (spf13)
+set linespace=0                                 " No extra spaces between rows
 
-    set incsearch                                   " Find while typing
-    set hlsearch                                    " Highlight search results
-    set ignorecase                                  " Case insensitive searching
-    set smartcase                                   " Case sensitive when uc present
-    set wildmenu                                    " Show list instead of just completing
-    set wildmode=list:longest,full                  " See spf13
-    set whichwrap=b,s,h,l,<,>,[,]                   " Backspaces and cursor keys wrap too
-    set scrolljump=10                               " Lines to scroll when cursor leaves screen
-    set scrolloff=5                                 " Min. lines to keep above and below cursor
-    set foldenable                                  " Enable folding
-    set foldmethod=marker                           " Fold at triple parans
+set incsearch                                   " Find while typing
+set hlsearch                                    " Highlight search results
+set ignorecase                                  " Case insensitive searching
+set smartcase                                   " Case sensitive when uc present
+set wildmenu                                    " Show list instead of just completing
+set wildmode=list:longest,full                  " See spf13
+set whichwrap=b,s,h,l,<,>,[,]                   " Backspaces and cursor keys wrap too
+set scrolljump=10                               " Lines to scroll when cursor leaves screen
+set scrolloff=5                                 " Min. lines to keep above and below cursor
+set foldenable                                  " Enable folding
+set foldmethod=marker                           " Fold at triple parans
 
-    set list
-    set listchars=tab:,.,trail:.,extends:#,nbsp:.   " Highlight problematic whitespaces
+set list
+set listchars=tab:,.,trail:.,extends:#,nbsp:.   " Highlight problematic whitespaces
 " }}}
 
 " Formatting {{{
 " ------------------------------------------------------------------------------
-    " set nowrap                                  " Wrap long lines
-    set autoindent                              " Indent at the same level as previous line
-    set expandtab                               " Tabs = spaces
-    set shiftwidth=4                            " Indent 4 spaces
-    set tabstop=4                               " Indentation every 4 columns
-    set softtabstop=4                           " Backspace deletes indent
+" set nowrap                                  " Wrap long lines
+set autoindent                              " Indent at the same level as previous line
+set expandtab                               " Tabs = spaces
+set shiftwidth=4                            " Indent 4 spaces
+set tabstop=4                               " Indentation every 4 columns
+set softtabstop=4                           " Backspace deletes indent
 " }}}
 
 " Key bindings / Mappings {{{
 " ------------------------------------------------------------------------------
-    let mapleader = ","
-    map j gj
-    map k gk
-    nnoremap Y y$
-    map <C-n> :NERDTreeToggle<CR>
+let mapleader = ","
+map j gj
+map k gk
+nnoremap Y y$
+map <C-n> :NERDTreeToggle<CR>
 
-    " Save files with Ctrl+S no matter in which mode it's pressed
-    noremap <silent> <C-S>      :Update<CR>
-    vnoremap <silent> <C-S>     <C-C>:Update<CR>
-    inoremap <silent> <C-S>     <C-O>:Update<CR>
+" Save files with Ctrl+S no matter in which mode it's pressed
+noremap <silent> <C-S>      :Update<CR>
+vnoremap <silent> <C-S>     <C-C>:Update<CR>
+inoremap <silent> <C-S>     <C-O>:Update<CR>
 
-    cmap w!! w !sudo tee % >/dev/null
+cmap w!! w !sudo tee % >/dev/null
 " }}}
