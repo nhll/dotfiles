@@ -2,12 +2,13 @@
 " General {{{
 " ------------------------------------------------------------------------------
     set nocompatible                            " Vim mode
+    filetype off
 
     set shortmess+=filmnrxoOtT                  " Avoids 'hit enter' messages
     set virtualedit=onemore                     " Allow cursor beyond last character
     set history=1000                            " Default: 20
 
-    set directory=~/.tmp/vim-swap,~/.tmp,/tmp     " Directories for swap files
+    set directory=~/.tmp/vim-swap,~/.tmp,/tmp   " Directories for swap files
 
     set backup
     set backupdir=~/.tmp/vim-backup              " Directory for backup files
@@ -19,6 +20,17 @@
     endif
 " }}}
 
+" Bundles {{{
+" ------------------------------------------------------------------------------
+    set rtp+=~/.vim/bundle/Vundle.vim " set the runtime path to include Vundle and initialize
+    call vundle#begin()
+
+    Plugin 'gmarik/Vundle.vim'
+
+    call vundle#end()
+    filetype plugin indent on
+" }}}
+
 " Appearance {{{
 " ------------------------------------------------------------------------------
     syntax on                                   " Syntax highlighting
@@ -26,7 +38,7 @@
     set background=dark
     set t_Co=256                                " 256 colors
     let base16colorspace=256
-    colorscheme base16-default
+    colorscheme solarized
 
     set showmode                                " Display the current mode
     set cursorline                              " Highlight the current line
@@ -91,35 +103,4 @@
     inoremap <silent> <C-S>     <C-O>:Update<CR>
 
     cmap w!! w !sudo tee % >/dev/null
-" }}}
-
-" Bundles {{{
-" ------------------------------------------------------------------------------
-    " Set up pathogen.vim
-    runtime bundle/vim-pathogen/autoload/pathogen.vim
-    execute pathogen#infect()
-
-    " NERDTree configuration
-    let g:NERDTreeDirArrows=0
-
-    " Paredit.vim
-    let g:paredit_electric_return=0
-
-    " Rainbow Parentheses
-    au VimEnter * RainbowParenthesesToggle
-    au Syntax   * RainbowParenthesesLoadRound
-    au Syntax   * RainbowParenthesesLoadSquare
-    au Syntax   * RainbowParenthesesLoadBraces
-" }}}
-
-" Custom commands {{{
-" ------------------------------------------------------------------------------
-    " For saving with Ctrl+S
-    command -nargs=0 -bar Update if &modified
-                               \|   if empty(bufname('%'))
-                               \|       browse confirm write
-                               \|   else
-                               \|       confirm write
-                               \|   endif
-                               \|endif
 " }}}
