@@ -7,6 +7,7 @@
     set shortmess+=filmnrxoOtT                  " Avoids 'hit enter' messages
     set virtualedit=onemore                     " Allow cursor beyond last character
     set history=1000                            " Default: 20
+    set timeoutlen=50
 
     set directory=~/.tmp/vim-swap,~/.tmp,/tmp   " Directories for swap files
 
@@ -28,6 +29,8 @@
     Plugin 'gmarik/Vundle.vim'
 
     Plugin 'tpope/vim-fugitive'
+    Plugin 'bling/vim-airline'
+    let g:airline_powerline_fonts = 1
 
     call vundle#end()
     filetype plugin indent on
