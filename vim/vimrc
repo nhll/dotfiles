@@ -5,7 +5,6 @@ set nocompatible                            " Vim mode
 filetype off
 
 set shortmess+=filmnrxoOtT                  " Avoids 'hit enter' messages
-set virtualedit=onemore                     " Allow cursor beyond last character
 set history=1000                            " Default: 20
 set timeoutlen=50
 
