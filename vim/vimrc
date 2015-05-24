@@ -30,6 +30,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'bling/vim-airline'        " Fancy statusline
 Plugin 'scrooloose/nerdtree'
 Plugin 'airblade/vim-gitgutter'   " Git diff next to the line numbers
+Plugin 'tpope/vim-endwise'
 
 call vundle#end()
 filetype plugin indent on
