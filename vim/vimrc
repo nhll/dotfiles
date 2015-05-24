@@ -29,8 +29,7 @@ Plugin 'gmarik/Vundle.vim'
 
 Plugin 'bling/vim-airline'        " Fancy statusline
 Plugin 'scrooloose/nerdtree'
-Plugin 'mhinz/vim-signify'        " VCS diff next to the line numbers
-let g:signify_vcs_list = ['git']  " Only use Signify with Git
+Plugin 'airblade/vim-gitgutter'   " Git diff next to the line numbers
 
 call vundle#end()
 filetype plugin indent on
