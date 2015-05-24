@@ -29,7 +29,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 Plugin 'bling/vim-airline'        " Fancy statusline
-Plugin 'tpope/vim-fugitive'
+Plugin 'scrooloose/nerdtree'
 Plugin 'mhinz/vim-signify'        " VCS diff next to the line numbers
 let g:signify_vcs_list = ['git']  " Only use Signify with Git
 
