@@ -93,7 +93,8 @@ set softtabstop=4                           " Backspace deletes indent
 
 " Key bindings / Mappings {{{
 " ------------------------------------------------------------------------------
-let mapleader = ","
+nnoremap <SPACE> <Nop>
+let mapleader=" "
 map j gj
 map k gk
 nnoremap Y y$
