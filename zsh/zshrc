@@ -89,3 +89,23 @@ fancy-ctrl-z () {
 }
 zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
+
+dark() {
+    echo -e -n "\033]50;SetProfile=Nik (Solarized Dark)\a"
+    export ITERM_PROFILE="dark"
+}
+
+light() {
+    echo -e -n "\033]50;SetProfile=Nik (Solarized Light)\a"
+    export ITERM_PROFILE="light"
+}
+
+toggleBackground() {
+    if [[ "$ITERM_PROFILE" = "light" ]]; then
+        dark
+    else
+        light
+    fi
+}
+zle -N toggleBackground
+bindkey '^[toggleBackground' toggleBackground
