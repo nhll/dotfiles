@@ -48,6 +48,9 @@ let g:airline#extensions#tabline#enabled = 1
 syntax on                                   " Syntax highlighting
 set number                                  " Enable line numbers
 set background=dark
+if $ITERM_PROFILE == 'light'
+    set background=light
+endif
 set t_Co=256                                " 256 colors
 let base16colorspace=256
 colorscheme solarized
