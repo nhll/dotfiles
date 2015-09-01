@@ -154,7 +154,8 @@ before layers configuration."
 
   ;; User initialization goes here
 
-  ;; Start Emacs in fullscreen mode.
+  ;; Start Emacs in fullscreen mode. This won't leave full screen mode when
+  ;; reloading this config.
   (if (not (eq (frame-parameter nil 'fullscreen) 'fullboth))
       (toggle-frame-fullscreen))
 )
