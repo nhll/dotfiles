@@ -17,12 +17,20 @@
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
+     osx
      auto-completion
      syntax-checking
+     eyebrowse
      version-control
      git
-     markdown
      emacs-lisp
+     clojure
+     javascript
+     evil-commentary
+     themes-megapack
+     dash
+     spotify
+     search-engine
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
