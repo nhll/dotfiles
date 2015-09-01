@@ -155,8 +155,9 @@ before layers configuration."
   ;; User initialization goes here
 
   ;; Start Emacs in fullscreen mode.
-  (toggle-frame-fullscreen)
-  )
+  (if (not (eq (frame-parameter nil 'fullscreen) 'fullboth))
+      (toggle-frame-fullscreen))
+)
 
 (defun dotspacemacs/config ()
   "Configuration function.
