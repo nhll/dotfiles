@@ -166,6 +166,10 @@ before layers configuration."
 layers configuration."
   ;; Disable OSX specific feature that breaks powerline colors.
   (setq ns-use-srgb-colorspace nil)
+  ;; Show line numbers.
+  (spacemacs/toggle-line-numbers)
+  ;; Show fill column indicator.
+  (spacemacs/toggle-fill-column-indicator)
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
