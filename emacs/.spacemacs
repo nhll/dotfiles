@@ -18,6 +18,7 @@
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      osx
+     shell
      auto-completion
      syntax-checking
      eyebrowse
