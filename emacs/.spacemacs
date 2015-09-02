@@ -25,7 +25,7 @@
      version-control
      git
      emacs-lisp
-     clojure
+     (clojure :variables clojure-enable-fancify-symbols t)
      javascript
      evil-commentary
      themes-megapack
