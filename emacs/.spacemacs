@@ -17,7 +17,7 @@
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-     (osx :variables osx-use-option-as-meta nil)
+     osx
      shell
      auto-completion
      syntax-checking
@@ -167,6 +167,8 @@ before layers configuration."
 layers configuration."
   ;; Disable OSX specific feature that breaks powerline colors.
   (setq ns-use-srgb-colorspace nil)
+  ;; Prevent right option key from working as meta.
+  (setq mac-right-option-modifier 'nil)
   ;; Show line numbers.
   (spacemacs/toggle-line-numbers)
   ;; Show fill column indicator.
