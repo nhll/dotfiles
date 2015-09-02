@@ -172,8 +172,6 @@ layers configuration."
   (setq mac-right-option-modifier 'nil)
   ;; Show line numbers.
   (spacemacs/toggle-line-numbers)
-  ;; Show fill column indicator.
-  (spacemacs/toggle-fill-column-indicator)
   ;; Enable truncate long lines.
   (spacemacs/toggle-truncate-lines)
   ;; Enable golden ratio
