@@ -173,6 +173,8 @@ layers configuration."
   (spacemacs/toggle-fill-column-indicator)
   ;; Enable truncate long lines.
   (spacemacs/toggle-truncate-lines)
+  ;; Enable golden ratio
+  (spacemacs/toggle-golden-ratio)
   ;; Enable highlight parens mode.
   (highlight-parentheses-mode)
 )
