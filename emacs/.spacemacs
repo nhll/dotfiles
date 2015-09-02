@@ -171,6 +171,8 @@ layers configuration."
   (spacemacs/toggle-line-numbers)
   ;; Show fill column indicator.
   (spacemacs/toggle-fill-column-indicator)
+  ;; Enable highlight parens mode.
+  (highlight-parentheses-mode)
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
