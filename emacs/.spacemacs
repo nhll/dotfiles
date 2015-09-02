@@ -164,6 +164,8 @@ before layers configuration."
   "Configuration function.
  This function is called at the very end of Spacemacs initialization after
 layers configuration."
+  ;; Disable OSX specific feature that breaks powerline colors.
+  (setq ns-use-srgb-colorspace nil)
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
