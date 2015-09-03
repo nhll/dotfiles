@@ -178,6 +178,8 @@ layers configuration."
   (spacemacs/toggle-golden-ratio)
   ;; Enable highlight parens mode.
   (highlight-parentheses-mode)
+  ;; (OSX) Enable scaling up font with CMD-+.
+  (global-set-key (kbd "s-+") 'spacemacs/scale-up-font)
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
