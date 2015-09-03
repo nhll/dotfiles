@@ -181,8 +181,7 @@ layers configuration."
 
   ;; Enable scaling up font with CMD-+.
   (global-set-key (kbd "s-+") 'spacemacs/scale-up-font)
-  ;; Allow window switching with CMD-{0-9}.
-  (global-set-key (kbd "s-0") 'select-window-0)
+  ;; Allow window switching with CMD-{1-9}.
   (global-set-key (kbd "s-1") 'select-window-1)
   (global-set-key (kbd "s-2") 'select-window-2)
   (global-set-key (kbd "s-3") 'select-window-3)
