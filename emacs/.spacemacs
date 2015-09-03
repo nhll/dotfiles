@@ -174,8 +174,6 @@ layers configuration."
   (setq-default git-magit-status-fullscreen t)
   ;; Show line numbers.
   (spacemacs/toggle-line-numbers)
-  ;; Enable truncate long lines.
-  (spacemacs/toggle-truncate-lines)
   ;; Enable golden ratio
   (spacemacs/toggle-golden-ratio)
   ;; Enable highlight parens mode.
