@@ -170,6 +170,8 @@ layers configuration."
   (setq ns-use-srgb-colorspace nil)
   ;; Prevent right option key from working as meta.
   (setq mac-right-option-modifier 'nil)
+  ;; Open git status in full screen.
+  (setq-default git-magit-status-fullscreen t)
   ;; Show line numbers.
   (spacemacs/toggle-line-numbers)
   ;; Enable truncate long lines.
