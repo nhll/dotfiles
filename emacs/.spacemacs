@@ -160,6 +160,9 @@ before layers configuration."
   ;; reloading this config.
   (if (not (eq (frame-parameter nil 'fullscreen) 'fullboth))
       (toggle-frame-fullscreen))
+  ;; Customize the key sequence that can be used instead of ESC for leaving
+  ;; states such as the evil insert state. Default: "fd"
+  (setq-default evil-escape-key-sequence "df")
 )
 
 (defun dotspacemacs/config ()
