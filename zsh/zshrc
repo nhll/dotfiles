@@ -109,3 +109,5 @@ toggleBackground() {
 }
 zle -N toggleBackground
 bindkey '^[toggleBackground' toggleBackground
+
+export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin
