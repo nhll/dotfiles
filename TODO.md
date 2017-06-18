@@ -1,5 +1,3 @@
-# .-files TODO
-
 ## Urxvt
 + Allow pasting via shift+insert
 
