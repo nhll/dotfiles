@@ -8,3 +8,4 @@ vim/vim/bundle/*
 *-x86_64-*
 
 i3/config
+termite/config
