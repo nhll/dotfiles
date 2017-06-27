@@ -1,0 +1,58 @@
+#!/bin/bash
+
+HOME_DIR="/home/nik"
+I3_DIR="$HOME_DIR/.i3"
+TERMITE_DIR="/$HOME_DIR/.config/termite"
+
+# Set THEME to light or dark, depending on selected mode.
+
+if [ $1 == "day" ]; then
+  THEME="light"
+elif [ $1 == "night" ]; then
+  THEME="dark"
+else
+  echo "Unsupported mode $1. Supported modes: day, night"
+  exit 1
+fi
+
+# Switch i3 to the selected mode.
+
+I3_THEME_FILE="$I3_DIR/themes/$THEME.config"
+I3_CONFIG_DIR="$I3_DIR/configs"
+
+if [ -f $I3_THEME_FILE ]; then
+  echo "[i3] Switching to $1 mode..."
+  cat $I3_THEME_FILE $I3_CONFIG_DIR/*.config > $I3_DIR/config
+  i3-msg restart &> /dev/null
+else
+  echo "[i3] File $I3_THEME_FILE does not exist."
+  exit 1
+fi
+
+# Switch Termite to the selected mode.
+
+TERMITE_THEME_FILE="$TERMITE_DIR/themes/$THEME.config"
+TERMITE_CONFIG_DIR="$TERMITE_DIR/configs"
+
+if [ -f $TERMITE_THEME_FILE ]; then
+  echo "[Termite] Switching to $1 theme..."
+  cat $TERMITE_THEME_FILE $TERMITE_CONFIG_DIR/*.config > $TERMITE_DIR/config
+  killall -s USR1 termite &> /dev/null
+else
+  echo "[Termite] File $TERMITE_THEME_FILE does not exist."
+  exit 1
+fi
+
+# Switch .Xresources to the selected mode.
+
+XORG_THEME_FILE="$HOME_DIR/.xthemes/$THEME.Xresources"
+
+if [ -f $XORG_THEME_FILE ]; then
+  echo "[Xorg] Switching to $1 theme..."
+  rm -f $HOME_DIR/.theme.Xresources
+  ln -s $XORG_THEME_FILE $HOME_DIR/.theme.Xresources
+  xrdb -load $HOME_DIR/.Xresources
+else
+  echo "[Xorg] File $XORG_THEME_FILE does not exist."
+  exit 1
+fi
