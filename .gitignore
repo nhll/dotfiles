@@ -6,3 +6,5 @@ vim/vim/bundle/*
 *.o
 *.errors
 *-x86_64-*
+
+i3/config
