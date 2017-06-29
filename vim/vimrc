@@ -31,6 +31,11 @@ Plugin 'bling/vim-airline'        " Fancy statusline
 Plugin 'scrooloose/nerdtree'
 Plugin 'airblade/vim-gitgutter'   " Git diff next to the line numbers
 Plugin 'chriskempson/base16-vim'
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
+let g:jsx_ext_required = 0        " Also enable JSX highlighting in .js files
+Plugin 'leshill/vim-json'
+Plugin 'junegunn/fzf', { 'rtp': '~/.fzf' }
 
 call vundle#end()
 filetype plugin indent on
