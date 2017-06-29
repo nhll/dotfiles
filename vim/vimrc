@@ -36,6 +36,8 @@ Plugin 'mxw/vim-jsx'
 let g:jsx_ext_required = 0        " Also enable JSX highlighting in .js files
 Plugin 'leshill/vim-json'
 Plugin 'junegunn/fzf', { 'rtp': '~/.fzf' }
+Plugin 'w0rp/ale'                 " Asynchronous Linting Engine
+let g:airline#extensions#ale#enabled = 1 " Let Airline handle ALE warnings/errors
 
 call vundle#end()
 filetype plugin indent on
