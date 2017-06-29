@@ -30,7 +30,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'bling/vim-airline'        " Fancy statusline
 Plugin 'scrooloose/nerdtree'
 Plugin 'airblade/vim-gitgutter'   " Git diff next to the line numbers
-Plugin 'tpope/vim-endwise'
+Plugin 'chriskempson/base16-vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -47,13 +47,10 @@ let g:airline#extensions#tabline#enabled = 1
 " ------------------------------------------------------------------------------
 syntax on                                   " Syntax highlighting
 set number                                  " Enable line numbers
-set background=dark
-if $ITERM_PROFILE == 'light'
-    set background=light
-endif
+
 set t_Co=256                                " 256 colors
 let base16colorspace=256
-colorscheme solarized
+colorscheme base16-default-dark
 
 set showmode                                " Display the current mode
 set cursorline                              " Highlight the current line
