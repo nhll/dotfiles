@@ -4,14 +4,20 @@
 set nocompatible                            " Vim mode
 filetype off
 
+nnoremap <space> <Nop>
+let mapleader="\<space>"
+
 set shortmess+=filmnrxoOtT                  " Avoids 'hit enter' messages
 set history=1000                            " Default: 20
-set timeoutlen=50
+set timeoutlen=5000
 
 set directory=~/.tmp/vim-swap,~/.tmp,/tmp   " Directories for swap files
 
+set splitbelow                              " Open new horizontal splits below
+set splitright                              " Open new vertical splits on the right
+
 set backup
-set backupdir=~/.tmp/vim-backup              " Directory for backup files
+set backupdir=~/.tmp/vim-backup             " Directory for backup files
 if has('persistent_undo')
     set undofile
     set undodir=~/.tmp/vim-undo,~/.tmp,/tmp " Directories for undo files
@@ -38,6 +44,8 @@ Plugin 'leshill/vim-json'
 Plugin 'junegunn/fzf', { 'rtp': '~/.fzf' }
 Plugin 'w0rp/ale'                 " Asynchronous Linting Engine
 let g:airline#extensions#ale#enabled = 1 " Let Airline handle ALE warnings/errors
+Plugin 'editorconfig/editorconfig-vim'
+Plugin 'easymotion/vim-easymotion'
 
 call vundle#end()
 filetype plugin indent on
@@ -99,8 +107,6 @@ set softtabstop=4                           " Backspace deletes indent
 
 " Key bindings / Mappings {{{
 " ------------------------------------------------------------------------------
-nnoremap <SPACE> <Nop>
-let mapleader=" "
 map j gj
 map k gk
 nnoremap Y y$
@@ -110,6 +116,12 @@ map <C-n> :NERDTreeToggle<CR>
 noremap <silent> <C-S>      :Update<CR>
 vnoremap <silent> <C-S>     <C-C>:Update<CR>
 inoremap <silent> <C-S>     <C-O>:Update<CR>
+
+" Easier window split navigation
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
 cmap w!! w !sudo tee % >/dev/null
 " }}}
