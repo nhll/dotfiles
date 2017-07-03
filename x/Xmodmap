@@ -2,6 +2,3 @@
 keycode 66 = Control_L
 clear Lock
 add Control = Control_L
-
-! Use F12 as the insert key
-keycode 96 = Insert
