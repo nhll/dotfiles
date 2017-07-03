@@ -46,6 +46,8 @@ Plugin 'w0rp/ale'                 " Asynchronous Linting Engine
 let g:airline#extensions#ale#enabled = 1 " Let Airline handle ALE warnings/errors
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'easymotion/vim-easymotion'
+Plugin 'Valloric/YouCompleteMe'
+let g:ycm_min_num_of_chars_for_completion = 0
 
 call vundle#end()
 filetype plugin indent on
