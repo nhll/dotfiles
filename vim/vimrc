@@ -105,6 +105,9 @@ set expandtab                               " Tabs = spaces
 set shiftwidth=4                            " Indent 4 spaces
 set tabstop=4                               " Indentation every 4 columns
 set softtabstop=4                           " Backspace deletes indent
+
+set foldmethod=syntax
+set foldlevelstart=0
 " }}}
 
 " Key bindings / Mappings {{{
